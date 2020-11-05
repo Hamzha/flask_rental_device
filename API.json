@@ -42,7 +42,7 @@
                   "type": "string"
                 }, 
                 "is_device_in_hub": {
-                  "example": "True", 
+                  "example": true, 
                   "type": "boolean"
                 }, 
                 "vendor": {
@@ -184,7 +184,7 @@
                   "type": "string"
                 }, 
                 "is_device_in_hub": {
-                  "example": "True", 
+                  "example": true, 
                   "type": "boolean"
                 }, 
                 "vendor": {
@@ -314,7 +314,7 @@
                   "type": "number"
                 }, 
                 "is_returned": {
-                  "example": "False", 
+                  "example": false, 
                   "type": "boolean"
                 }, 
                 "rented_at": {
