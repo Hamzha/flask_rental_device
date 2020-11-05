@@ -53,7 +53,7 @@ def addDevice(req):
     date_created_at = datetime.strptime(req['created_at'], "%d-%m-%Y %H:%M:%S")
     date_created_at_hub = datetime.strptime(req['created_at_hub'], "%d-%m-%Y %H:%M:%S")
 
-    inset_query = "INSERT INTO devices_meta (device_id, device_name, vendor, created_at ,is_device_in_hub, created_at_hub) VALUES ("+ str(req["device_id"] )+",'" + req["device_name"] +"','"+ req["vendor"] +"','"+ str(date_created_at) +"',"+ req["is_device_in_hub"] +",'"+ str(date_created_at_hub) +"');"
+    inset_query = "INSERT INTO devices_meta (device_id, device_name, vendor, created_at ,is_device_in_hub, created_at_hub) VALUES ("+ str(req["device_id"] )+",'" + req["device_name"] +"','"+ req["vendor"] +"','"+ str(date_created_at) +"',"+ str(req["is_device_in_hub"]) +",'"+ str(date_created_at_hub) +"');"
     
     con = connect_postgre()
     if con == False:
@@ -109,7 +109,7 @@ def modifyDevice(req):
         date_created_at = datetime.strptime(req['created_at'], "%d-%m-%Y %H:%M:%S")
         update_query = update_query+", created_at = '" + str(date_created_at) +"'"
     if 'is_device_in_hub' in req:
-        update_query = update_query+ ",is_device_in_hub = '"+req["is_device_in_hub"] +"'"
+        update_query = update_query+ ",is_device_in_hub = '"+str(req["is_device_in_hub"]) +"'"
     if 'created_at_hub' in req:
         date_created_at_hub = datetime.strptime(req['created_at_hub'], "%d-%m-%Y %H:%M:%S")
         update_query = update_query+", created_at_hub = '"+ str(date_created_at_hub) +"'"
