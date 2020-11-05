@@ -62,7 +62,7 @@ def addDevice():
                     example: "29-03-2013 15:59:02"
                 is_device_in_hub:
                     type: boolean
-                    example: "True"
+                    example: true
                 created_at_hub:
                     type: string
                     example: "29-03-2013 15:59:02"
@@ -240,7 +240,7 @@ def modifyDevice():
                     example: "29-03-2013 15:59:02"
                 is_device_in_hub:
                     type: boolean
-                    example: "True"
+                    example: true
                 created_at_hub:
                     type: string
                     example: "29-03-2013 15:59:02"
@@ -432,7 +432,7 @@ def rentDevice():
                     example: "1"
                 is_returned:
                     type: boolean
-                    example: "False"
+                    example: false
                 returned_at:
                     type: string
                     example: "29-03-2013 15:59:02"
