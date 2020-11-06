@@ -1,0 +1,422 @@
+{
+  "definitions": {}, 
+  "info": {
+    "contact": {
+      "email": "ahmedhamza884@gmail.com", 
+      "responsibleDeveloper": "Hamza Ahmed", 
+      "responsibleOrganization": "Hafiz Muhammad Sheharyar"
+    }, 
+    "description": "API for Device Rental System", 
+    "title": "Device Rental System", 
+    "version": "1"
+  }, 
+  "paths": {
+    "/addDevice": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "body", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "created_at_hub": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "device_id": {
+                  "example": 1, 
+                  "type": "number"
+                }, 
+                "device_name": {
+                  "example": "tk259", 
+                  "type": "string"
+                }, 
+                "is_device_in_hub": {
+                  "example": true, 
+                  "type": "boolean"
+                }, 
+                "vendor": {
+                  "description": "asasd", 
+                  "example": "Ishfaq", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "device_id", 
+                "device_name", 
+                "vendor", 
+                "created_at", 
+                "is_device_in_hub", 
+                "created_at_hub"
+              ]
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "code": "number", 
+            "description": "Device is inserted successfully", 
+            "msg": "string"
+          }, 
+          "400": {
+            "code": "number", 
+            "description": "Database Connection error OR Bad Request.", 
+            "msg": "string"
+          }, 
+          "409": {
+            "code": "number", 
+            "description": "Device with same device_id exists.", 
+            "msg": "string"
+          }
+        }, 
+        "summary": "Call to Add Device"
+      }
+    }, 
+    "/addUser": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "body", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "address": {
+                  "exmaple": "kalma chowk", 
+                  "type": "string"
+                }, 
+                "created_at": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "created_at_hub": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "dob": {
+                  "example": "29-03-1991", 
+                  "type": "string"
+                }, 
+                "user_id": {
+                  "example": 1, 
+                  "type": "number"
+                }, 
+                "user_name": {
+                  "example": "user_1", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "user_id", 
+                "user_name", 
+                "address", 
+                "dob", 
+                "created_at"
+              ]
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "code": "number", 
+            "description": "User is inserted successfully.", 
+            "msg": "string"
+          }, 
+          "400": {
+            "code": "number", 
+            "description": "Database Connection error OR Bad Request.", 
+            "msg": "string"
+          }, 
+          "409": {
+            "code": "number", 
+            "description": "User with same user_id exists.", 
+            "msg": "string"
+          }
+        }, 
+        "summary": "Call to Add User"
+      }
+    }, 
+    "/modifyDevice": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "body", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "created_at_hub": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "device_id": {
+                  "example": 1, 
+                  "type": "number"
+                }, 
+                "device_name": {
+                  "example": "tk259", 
+                  "type": "string"
+                }, 
+                "is_device_in_hub": {
+                  "example": true, 
+                  "type": "boolean"
+                }, 
+                "vendor": {
+                  "description": "asasd", 
+                  "example": "Ishfaq", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "device_id", 
+                "device_name", 
+                "vendor", 
+                "created_at", 
+                "is_device_in_hub", 
+                "created_at_hub"
+              ]
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "code": "number", 
+            "description": "Device is modified successfully", 
+            "msg": "string"
+          }, 
+          "400": {
+            "code": "number", 
+            "description": "Please Provide all required fields or Database Connection error or Bad Request", 
+            "msg": "string"
+          }, 
+          "409": {
+            "code": "number", 
+            "description": "Device with this device_id does not exits.", 
+            "msg": "string"
+          }
+        }, 
+        "summary": "Call to Modify Device"
+      }
+    }, 
+    "/modifyUser": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "body", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "address": {
+                  "exmaple": "kalma chowk", 
+                  "type": "string"
+                }, 
+                "created_at": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "created_at_hub": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "dob": {
+                  "example": "29-03-1991", 
+                  "type": "string"
+                }, 
+                "user_id": {
+                  "example": 1, 
+                  "type": "number"
+                }, 
+                "user_name": {
+                  "example": "user_1", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "user_id", 
+                "user_name", 
+                "address", 
+                "dob", 
+                "created_at"
+              ]
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "code": "number", 
+            "description": "User is modified successfully", 
+            "msg": "string"
+          }, 
+          "400": {
+            "code": "number", 
+            "description": "Please Provide all required fields or Database Connection error or Bad Request", 
+            "msg": "string"
+          }, 
+          "409": {
+            "code": "number", 
+            "description": "Device with this user_id does not exits.", 
+            "msg": "string"
+          }
+        }, 
+        "summary": "Call to Modify User"
+      }
+    }, 
+    "/rentDevice": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "body", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "device_id": {
+                  "example": 1, 
+                  "type": "number"
+                }, 
+                "is_returned": {
+                  "example": false, 
+                  "type": "boolean"
+                }, 
+                "rented_at": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "rented_to_name": {
+                  "example": "User_123", 
+                  "type": "string"
+                }, 
+                "rented_to_uid": {
+                  "exmaple": 1, 
+                  "type": "number"
+                }, 
+                "returned_at": {
+                  "example": "29-03-2013 15:59:02", 
+                  "type": "string"
+                }, 
+                "transaction_id": {
+                  "example": "1", 
+                  "type": "number"
+                }
+              }, 
+              "required": [
+                "device_id", 
+                "rented_at", 
+                "rented_to_uid", 
+                "rented_to_name", 
+                "transaction_id", 
+                "is_returned", 
+                "returned_at"
+              ]
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "code": "number", 
+            "description": "User is modified successfully.", 
+            "msg": "string"
+          }, 
+          "400": {
+            "code": "number", 
+            "description": "Database Connection error or Bad Request", 
+            "msg": "string"
+          }, 
+          "409": {
+            "code": "number", 
+            "description": "device_id or user_id does not exist.", 
+            "msg": "string"
+          }
+        }, 
+        "summary": "Call to Modify User"
+      }
+    }, 
+    "/returnDevice": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "body", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "device_id": {
+                  "example": 1, 
+                  "type": "number"
+                }
+              }, 
+              "required": [
+                "device_id"
+              ]
+            }
+          }
+        ], 
+        "produces": [
+          "application/json"
+        ], 
+        "responses": {
+          "200": {
+            "code": "number", 
+            "description": "is_returned set to true.", 
+            "msg": "string"
+          }, 
+          "400": {
+            "code": "number", 
+            "description": "Database Connection error or Bad Request", 
+            "msg": "string"
+          }, 
+          "409": {
+            "code": "number", 
+            "description": "Device was not rented.", 
+            "msg": "string"
+          }
+        }, 
+        "summary": "Call to Modify User"
+      }
+    }
+  }, 
+  "swagger": "2.0"
+}
