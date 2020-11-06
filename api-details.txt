@@ -1,0 +1,54 @@
+Database tables definition
+=========================================
+CREATE TABLE "devices_meta" (
+	"device_id" VARCHAR NOT NULL,
+	"device_name" VARCHAR NOT NULL,
+	"vendor" VARCHAR,
+	"created_at" TIMESTAMP,
+	"is_device_in_hub" BOOLEAN,
+	"created_at_hub" TIMESTAMP,
+	CONSTRAINT "devices_meta_pk" PRIMARY KEY ("device_id")
+);
+
+#################################################
+
+CREATE TABLE "users_meta" (
+	"user_id" VARCHAR NOT NULL,
+	"user_name" VARCHAR NOT NULL,
+	"address" VARCHAR,
+	"dob" DATE NOT NULL,
+	"created_at" TIMESTAMP,
+	CONSTRAINT "users_meta_pk" PRIMARY KEY ("user_id")
+);
+
+############################################
+
+CREATE TABLE "device_rentals" (
+	"device_id" VARCHAR NOT NULL,
+	"rented_at" TIMESTAMP NOT NULL,
+	"rented_to_uid" VARCHAR NOT NULL,
+	"rented_to_name" VARCHAR NOT NULL,
+	"transaction_id" SERIAL NOT NULL,
+	"is_returned" BOOLEAN,
+	"returned_at" TIMESTAMP,
+	FOREIGN KEY (device_id) REFERENCES devices_meta (device_id),
+	FOREIGN KEY (rented_to_uid) REFERENCES users_meta (user_id),
+	CONSTRAINT "device_rentals_pk" PRIMARY KEY ("transaction_id")
+);
+
+======================================================
+
+API requirements
+- /addDevice : Insert a new device in devices_meta table. Receive all data as query payload. Response 200 if insert OK. Response 409 id device_id exist already. Message: "Device with same device_id exists"
+- /modifyDevice: Changes devices_meta table row for a specific device_id. Response 200 if insert OK. Response 400 if any NOT NULL value is not available as input "Please provide all required field."
+- /addUser: Creates a new user in users_meta. Receive all data as query payload. Response 200 if insert OK. Response 409 id user_id exists already. Message: "User with same user_id exists"
+- /modifyUser: Changes users_meta table row for a specific user_id. Response 200 if insert OK. Response 400 if any NOT NULL value is not available as input "Please provide all required field."
+- /rentDevice: assigns a particular device that exists in devices_meta table to a user that exists in users_meta table. Receive all data as query payload. Response 200 if insert OK. Set is_returned to "False". Response 409 if device or user does not exist in devices_meta or users_meta tables.
+- /returnDevice returns a particular device with device_id. Receive all data as query payload. Response 200 if insert OK. Set is_returned to "True". Response 409 if device was not rented.
+
+==========================================================
+Tech Stack (Please use it if possible)
+- Azure function app , HTTPS endpoint
+- Database is Postgres PSQL
+- Please use python for Azure function App - If not using Azure app function then use Flask at least.
+- If possible please first create API Specs with OpenAPI specification 2.0 (swagger)
