@@ -1,10 +1,10 @@
 # Device Rental API
 
-This project is build according to the requirements provided in this requirement * File
+This project is build according to the requirements provided in this [requirement](api-details.txt)
 
 ### Envionment
-Ubuntu 18.04
-PostgreSQL v12.4
+* Ubuntu 18.04
+* PostgreSQL v12.4
 
 
 ### How to Run this project
