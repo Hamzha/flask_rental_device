@@ -8,15 +8,13 @@ app = Flask(__name__)
 template = {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "API for my data",
+    "title": "Device Rental System",
+    "description": "API for Device Rental System",
     "contact": {
-      "responsibleOrganization": "ME",
-      "responsibleDeveloper": "Me",
-      "email": "me@me.com",
-      "url": "www.me.com",
+      "responsibleOrganization": "Hafiz Muhammad Sheharyar",
+      "responsibleDeveloper": "Hamza Ahmed",
+      "email": "ahmedhamza884@gmail.com"
     },
-    "termsOfService": "http://me.com/terms",
     "version": "1"
   },
 }
@@ -68,7 +66,7 @@ def addDevice():
                     example: "29-03-2013 15:59:02"
     responses:
         200:
-            description: "Device is insesrt successfully"
+            description: "Device is inserted successfully"
             msg: string
             code: number
         409:
@@ -156,7 +154,7 @@ def addUser():
                     example: "29-03-2013 15:59:02"
     responses:
         200:
-            description: "User is insesrt successfully"
+            description: "User is inserted successfully."
             msg: string
             code: number
         409:
@@ -438,7 +436,7 @@ def rentDevice():
                     example: "29-03-2013 15:59:02"
     responses:
         200:
-            description: "User is modified successfully"
+            description: "User is modified successfully."
             msg: string
             code: number
         400: 
@@ -553,6 +551,6 @@ def returnDevice():
         return json_response,400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
 
