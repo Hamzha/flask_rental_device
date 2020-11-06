@@ -1,6 +1,6 @@
 # Device Rental API
 
-This project is build according to the requirements provided in this [requirement](api-details.txt)
+This project is built according to the requirements provided in this [file](api-details.txt)
 
 ### Envionment
 * Ubuntu 18.04
